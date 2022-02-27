@@ -1,9 +1,6 @@
 {
-	"ip":" kalathiya_hills.aternos.me",
-	"port": 26564,
-	"name": "afkbot1",
-	"auto-night-skip":"false",
-	"login-enabled":"true",
-	"register-cmd":"/register (type_ur_pass_here(remember_no_spaces)) (type_ur_pass_here(remember_no_spaces))",
-	"login-cmd":"/login (type_ur_pass_here)"
+	"ip":"allrady.aternos.me.ip",
+	"port": "20489",
+	"name": "allrady",
+	"auto-night-skip":"true"
 }

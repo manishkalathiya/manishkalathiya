@@ -5,7 +5,6 @@ let rawdata = fs.readFileSync('config.json');
 let data = JSON.parse(rawdata);
 var lasttime = -1;
 var moving = 0;
-var first = false;
 var connected = 0;
 var actions = [ 'forward', 'back', 'left', 'right']
 var lastaction;
@@ -17,7 +16,6 @@ var username = data["name"]
 var nightskip = data["auto-night-skip"]
 var bot = mineflayer.createBot({
   host: host,
-  port:data["port"],
   username: username
 });
 function getRandomArbitrary(min, max) {
@@ -30,36 +28,11 @@ bot.loadPlugin(cmd)
 
 
 bot.on('login',function(){
-	console.log("Trying to login")
-	if(data["login-enabled"] == "true"){
-		bot.chat(data["register-cmd"])
-		bot.chat(data["login-cmd"])
-	}
-	for (let i=0; i<10; i++) { 
-	   task(i); 
-	} 
 	console.log("Logged In")
 	bot.chat("hello");
 });
-  
-function task(i) { 
-	
-  setTimeout(function() { 
-    if(first == true){
-	bot.chat("Subscribe To Easy Gamer : https://www.youtube.com/channel/UCk575VDlrCsv1Gy2XZQ1bSA")
-	first = false;
-	}
-	else{
-		bot.chat("Subscribe To MannuG : https://www.youtube.com/channel/UCSZHRnBue50ImBKeR6k6eDg")
-		first = true;
-	}
-  }, 3600000 * i); 
-} 
-
 
 bot.on('time', function(time) {
-
-		
 	if(nightskip == "true"){
 	if(bot.time.timeOfDay >= 13000){
 	bot.chat('/time set day')
